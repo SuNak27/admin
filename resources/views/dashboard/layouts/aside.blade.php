@@ -67,6 +67,7 @@
             <span class="menu-title">Wilayah</span>
           </a>
         </div>
+
         <div class="menu-item">
           <a class="menu-link {{ Request::is('/settingHari') ? 'active' : '' }}" href="/">
             <span class="menu-icon">
