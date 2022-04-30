@@ -22,16 +22,5 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'deleted_at' => null,
         ];
-
-        // $table->id();
-        // $table->string('nik');
-        // $table->string('name');
-        // $table->string('username');
-        // $table->string('email')->unique();
-        // $table->timestamp('verified')->nullable();
-        // $table->string('password');
-        // $table->string('level');
-        // $table->timestamps();
-        // $table->timestamp('deleted_at')->nullable();
     }
 }

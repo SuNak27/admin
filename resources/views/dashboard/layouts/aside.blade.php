@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="menu-item">
-          <a class="menu-link {{ Route::name('/dashboard') ? 'active' : '' }}" href="/">
+          <a class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}" href="/dashboard">
             <span class="menu-icon">
               <i class="bi bi-house-door"></i>
             </span>
@@ -55,9 +55,12 @@
           </a>
         </div>
         <div class="menu-item">
-          <div class="menu-content pb-2">
-            <span class="menu-section text-white text-uppercase fs-8 ls-1">Setting</span>
-          </div>
+          <a class="menu-link {{ Request::is('myclass') ? 'active' : '' }}" href="/myclass">
+            <span class="menu-icon">
+              <i class="bi bi-book"></i>
+            </span>
+            <span class="menu-title">Kelas Saya</span>
+          </a>
         </div>
       </div>
       <!--end::Menu-->

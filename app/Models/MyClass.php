@@ -6,14 +6,15 @@ use App\Models\ClassRoom;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends Model
+class MyClass extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['class_room'];
 
     public function class_room()
     {
-        return $this->hasMany(ClassRoom::class);
+        return $this->belongsTo(ClassRoom::class);
     }
 }

@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\ClassRoom;
+use App\Models\MyClass;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,21 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(4)->create();
+        // User::factory()->count(4)->create();
 
-        Category::create([
-            'name' => "Frontend",
-            'description' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit incidunt provident assumenda accusantium blanditiis et distinctio.",
+        User::create([
+            'name' => 'Admin',
+            'email' => 'alfadsabilhaq@gmail.com',
+            'password' => bcrypt('123456'),
+            'username' => 'sunak27',
         ]);
 
         Category::create([
-            'name' => "Backend",
-            'description' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit incidunt provident assumenda accusantium blanditiis et distinctio.",
+            'name' => "Backend Developer",
+            'description' => "Lorem, ipsum dolor sit",
         ]);
 
-        Category::create([
-            'name' => "Fullstack",
-            'description' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit incidunt provident assumenda accusantium blanditiis et distinctio.",
+        ClassRoom::create([
+            'name' => "Belajar Golang",
+            'category_id' => 1,
+            'description' => "Lorem ipsum",
         ]);
+
+        MyClass::factory()->count(1)->create();
     }
 }

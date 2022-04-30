@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MyClassController;
 use App\Models\Category;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/', function () {
         'categories' => Category::all(),
     ]);
 });
+Route::get('/myclass', [MyClassController::class, 'index']);
 Route::get('/category-{id}', [CategoryController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::resource('/register', RegisterController::class)->middleware('guest');

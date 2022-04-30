@@ -8,16 +8,18 @@
        <!--begin::Heading-->
        <div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
          <!--begin::Title-->
-         <h1 class="text-white lh-base fw-bolder fs-2x fs-lg-3x mb-15">Build An Outstanding Solutions
+         <h1 class="text-white lh-base fw-bolder fs-2x fs-lg-3x">Kursus Pemrograman </h1>
+         <h3 class="text-white  fw-bold fs-2x mb-15">Build An Outstanding Solutions
            <br />with
            <span
              style="background: linear-gradient(to right, #12CE5D 0%, #FFD80C 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-             <span id="kt_landing_hero_text">The Best Theme Ever</span>
+             <span id="kt_landing_hero_text">The Best Code Ever</span>
            </span>
-         </h1>
+         </h3>
          <!--end::Title-->
          <!--begin::Action-->
-         <a href="../../demo1/dist/index.html" class="btn btn-primary">Try Metronic</a>
+         <a href="#kelas" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true" class="btn btn-primary">Start
+           Learning</a>
          <!--end::Action-->
        </div>
        <!--end::Heading-->

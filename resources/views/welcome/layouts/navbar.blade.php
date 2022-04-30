@@ -61,7 +61,7 @@
               <div class="menu-item">
                 <!--begin::Menu link-->
                 <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#kelas" data-kt-scroll-toggle="true"
-                  data-kt-drawer-dismiss="true">Kelas</a>
+                  data-kt-drawer-dismiss="true">Class</a>
                 <!--end::Menu link-->
               </div>
               <!--end::Menu item-->
@@ -94,9 +94,11 @@
           <a href="/dashboard" class="btn btn-success">Home</a>
         </div>
       @else
-        <div class="flex-equal text-end ms-1">
-          <a href="/login" class="btn btn-success">Sign In</a>
-        </div>
+        @if (Route::name('/login'))
+          <div class="flex-equal text-end ms-1">
+            <a href="/login" class="btn btn-success">Sign In</a>
+          </div>
+        @endif
       @endauth
       <!--end::Toolbar-->
     </div>
