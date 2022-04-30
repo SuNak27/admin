@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
@@ -15,27 +14,25 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'nik' => $this->faker->nik(),
             'name' => $this->faker->name(),
             'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => null,
+            'verified' => null,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'role_id' => $this->faker->numberBetween(1, 3),
-            'remember_token' => Str::random(10),
+            'level' => $this->faker->randomElement(['Beginner', 'Intermidate', 'Expert']),
+            'deleted_at' => null,
         ];
-    }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
+        // $table->id();
+        // $table->string('nik');
+        // $table->string('name');
+        // $table->string('username');
+        // $table->string('email')->unique();
+        // $table->timestamp('verified')->nullable();
+        // $table->string('password');
+        // $table->string('level');
+        // $table->timestamps();
+        // $table->timestamp('deleted_at')->nullable();
     }
 }

@@ -29,13 +29,11 @@
       <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
         <!--begin::Logo-->
         <div class="mb-10 text-center">
-          <img src="/img/logo.png" class="img-fluid mb-2 w-100px" alt="">
+          <img src="https://ui-avatars.com/api/?name=Kursus+Pemrograman&rounded=true" class="img-fluid mb-5 w-100px"
+            alt="">
           <!--begin::Title-->
-          <h1 class="text-dark mb-1">Sambang Santri</h1>
+          <h1 class="text-dark mb-1">Kursus Pemrograman</h1>
           <!--end::Title-->
-          <!--begin::Link-->
-          <div class="text-gray-400 fw-bold fs-4">&copy; IT Center Pondok Pesantren Nurul Jadid</div>
-          <!--end::Link-->
         </div>
         <!--end::Logo-->
         <!--begin::Wrapper-->
