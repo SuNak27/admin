@@ -24,15 +24,13 @@
         <!--end::Mobile menu toggle-->
         @if (Request::is('/'))
           <a href="/">
-            <img alt="Logo" src="assets/media/logos/logo-landing.svg" class="logo-default h-25px h-lg-30px" />
-            <img alt="Logo" src="assets/media/logos/logo-landing-dark.svg" class="logo-sticky h-20px h-lg-25px" />
+            <img alt="Logo" src="/img/dark.png" class="logo-default h-150px" />
+            <img alt="Logo" src="/img/light.png" class="logo-sticky h-150px" />
           </a>
         @else
           <a href="/">
-            <img alt="Logo" style="cursor: pointer" src="assets/media/logos/logo-landing-dark.svg"
-              class="logo-default h-25px h-lg-30px" />
-            <img alt="Logo" style="cursor: pointer" src="assets/media/logos/logo-landing-dark.svg"
-              class="logo-sticky h-20px h-lg-25px" />
+            <img alt="Logo" style="cursor: pointer" src="/img/light.png" class="logo-default h-150px" />
+            <img alt="Logo" style="cursor: pointer" src="/img/light.png" class="logo-sticky h-150px" />
           </a>
         @endif
         <!--begin::Logo image-->
@@ -90,9 +88,16 @@
       @endif
       <!--end::Menu wrapper-->
       <!--begin::Toolbar-->
-      <div class="flex-equal text-end ms-1">
-        <a href="../../demo1/dist/authentication/flows/basic/sign-in.html" class="btn btn-success">Sign In</a>
-      </div>
+
+      @auth
+        <div class="flex-equal text-end ms-1">
+          <a href="/dashboard" class="btn btn-success">Home</a>
+        </div>
+      @else
+        <div class="flex-equal text-end ms-1">
+          <a href="/login" class="btn btn-success">Sign In</a>
+        </div>
+      @endauth
       <!--end::Toolbar-->
     </div>
     <!--end::Wrapper-->

@@ -37,14 +37,15 @@ License: For each use you must have a valid license purchased only from above li
       class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
       style="background-image: url(assets/media/illustrations/sketchy-1/14.png">
       <!--begin::Content-->
+      @include('welcome.layouts.navbar')
       <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
-        <div class="mb-10 text-center">
+        {{-- <div class="mb-10 text-center">
           <img src="https://ui-avatars.com/api/?name=Kursus+Pemrograman&rounded=true" class="img-fluid mb-5 w-100px"
             alt="">
           <!--begin::Title-->
           <h1 class="text-dark mb-1">Kursus Pemrograman</h1>
           <!--end::Title-->
-        </div>
+        </div> --}}
         <!--begin::Wrapper-->
         <div class="w-lg-600px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
           <!--begin::Form-->
@@ -84,7 +85,7 @@ License: For each use you must have a valid license purchased only from above li
               @enderror
             </div>
             <div class="fv-row mb-7">
-              <label class="form-label fw-bolder text-dark fs-6">No. Telp</label>
+              <label class="form-label fw-bolder text-dark fs-6">Username</label>
               <input class="form-control form-control-lg form-control-solid @error('username') is-invalid @enderror"
                 type="text" value="{{ old('username') }}" placeholder="" name="username" id="username"
                 autocomplete="off" />

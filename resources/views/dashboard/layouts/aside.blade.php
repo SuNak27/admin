@@ -7,7 +7,7 @@
   <div class="aside-logo flex-column-auto" id="kt_aside_logo">
     <!--begin::Logo-->
     <a href="/">
-      <img src="/img/sambang-aside-dark.png" alt="logo" class="logo h-30px">
+      <img src="/img/dark.png" alt="logo" class="logo h-100px">
     </a>
     <!--end::Logo-->
     <!--begin::Aside toggler-->
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="menu-item">
-          <a class="menu-link {{ Request::is('/') ? 'active' : '' }}" href="/">
+          <a class="menu-link {{ Route::name('/dashboard') ? 'active' : '' }}" href="/">
             <span class="menu-icon">
               <i class="bi bi-house-door"></i>
             </span>
@@ -59,39 +59,6 @@
             <span class="menu-section text-white text-uppercase fs-8 ls-1">Setting</span>
           </div>
         </div>
-        <div class="menu-item">
-          <a class="menu-link {{ Request::is('wilayah') ? 'active' : '' }}" href="/wilayah">
-            <span class="menu-icon">
-              <i class="bi bi-diagram-2"></i>
-            </span>
-            <span class="menu-title">Wilayah</span>
-          </a>
-        </div>
-
-        <div class="menu-item">
-          <a class="menu-link {{ Request::is('/settingHari') ? 'active' : '' }}" href="/">
-            <span class="menu-icon">
-              <i class="bi bi-calendar-day"></i>
-            </span>
-            <span class="menu-title">Setting Hari</span>
-          </a>
-        </div>
-        @can('admin')
-          <div class="menu-item">
-            <div class="menu-content pb-2">
-              <span class="menu-section text-dark text-uppercase fs-8 ls-1">Administrator</span>
-            </div>
-          </div>
-          <div class="menu-item">
-            <a class="menu-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}"
-              href="/dashboard/categories">
-              <span class="menu-icon">
-                <i class="bi bi-grid"></i>
-              </span>
-              <span class="menu-title">Category</span>
-            </a>
-          </div>
-        @endcan
       </div>
       <!--end::Menu-->
     </div>
