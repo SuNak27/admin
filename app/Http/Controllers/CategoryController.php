@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    function index($id)
+    function index()
     {
         return view('welcome.category', [
-            'category' => Category::find($id),
+            'category' => Category::all(),
         ]);
     }
 }

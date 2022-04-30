@@ -54,14 +54,26 @@
             <span class="menu-title">Home</span>
           </a>
         </div>
-        <div class="menu-item">
-          <a class="menu-link {{ Request::is('myclass') ? 'active' : '' }}" href="/myclass">
-            <span class="menu-icon">
-              <i class="bi bi-book"></i>
-            </span>
-            <span class="menu-title">Kelas Saya</span>
-          </a>
-        </div>
+        @can('admin')
+          <div class="menu-item">
+            <a class="menu-link {{ Request::is('classlist*') ? 'active' : '' }}" href="/classlist">
+              <span class="menu-icon">
+                <i class="bi bi-book"></i>
+              </span>
+              <span class="menu-title">Daftar Kelas</span>
+            </a>
+          </div>
+        @endcan
+        @can('student')
+          <div class="menu-item">
+            <a class="menu-link {{ Request::is('myclass') ? 'active' : '' }}" href="/myclass">
+              <span class="menu-icon">
+                <i class="bi bi-book"></i>
+              </span>
+              <span class="menu-title">Kelas Saya</span>
+            </a>
+          </div>
+        @endcan
       </div>
       <!--end::Menu-->
     </div>

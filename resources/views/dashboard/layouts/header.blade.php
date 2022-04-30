@@ -92,10 +92,12 @@
                   <div class="d-flex flex-column">
                     <div class="fw-bolder d-flex align-items-center fs-5">
                       {{ auth()->user()->username }}
-                      @if (auth()->user()->is_admin == '1')
-                        <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Admin</span>
-                      @else
-                        <span class="badge badge-light-primary fw-bolder fs-8 px-2 py-1 ms-2">User</span>
+                      @if (auth()->user()->role != 'student')
+                        @if (auth()->user()->role == 'admin')
+                          <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Admin</span>
+                        @else
+                          <span class="badge badge-light-primary fw-bolder fs-8 px-2 py-1 ms-2">Mentor</span>
+                        @endif
                       @endif
                     </div>
                     <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->name }}</a>

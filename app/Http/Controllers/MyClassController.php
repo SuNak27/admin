@@ -12,7 +12,7 @@ class MyClassController extends Controller
     {
         return view('dashboard.myclass', [
             'title' => 'Kelas Saya',
-            'classes' => MyClass::all(),
+            'classes' => MyClass::where('user_id', auth()->user()->id)->get(),
         ]);
     }
 }

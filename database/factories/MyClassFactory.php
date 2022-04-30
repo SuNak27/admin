@@ -14,10 +14,8 @@ class MyClassFactory extends Factory
     public function definition()
     {
         return [
-            // 'user_id' => $this->faker->numberBetween(1, 5),
-            'user_id' => 1,
-            'class_room_id' => 1,
-            // 'class_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 5),
+            'class_room_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

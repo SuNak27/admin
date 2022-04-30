@@ -26,6 +26,7 @@ License: For each use you must have a valid license purchased only from above li
   <link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
   <link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
   <!--end::Global Stylesheets Bundle-->
+  <link href="/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -79,17 +80,92 @@ License: For each use you must have a valid license purchased only from above li
   <!--begin::Global Javascript Bundle(used by all pages)-->
   <script src="/assets/plugins/global/plugins.bundle.js"></script>
   <script src="/assets/js/scripts.bundle.js"></script>
-  <!--end::Global Javascript Bundle-->
-  <!--begin::Page Vendors Javascript(used by this page)-->
-  <script src="/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
   <!--end::Page Vendors Javascript-->
-  <!--begin::Page Custom Javascript(used by this page)-->
-  <script src="/assets/js/custom/widgets.js"></script>
-  <script src="/assets/js/custom/apps/chat/chat.js"></script>
-  <script src="/assets/js/custom/modals/create-app.js"></script>
-  <script src="/assets/js/custom/modals/upgrade-plan.js"></script>
-  <!--end::Page Custom Javascript-->
+  <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
   <!--end::Javascript-->
+
+
+  <script>
+    // $('#classes').DataTable({
+    //   searching: true,
+    // });
+    "use strict";
+
+    // Class definition
+    var KTDatatablesButtons = function() {
+      // Shared variables
+      var table;
+      var datatable;
+
+      // Private functions
+      var initDatatable = function() {
+        // Set date data order
+        const tableRows = table.querySelectorAll('tbody tr');
+
+        tableRows.forEach(row => {
+          const dateRow = row.querySelectorAll('td');
+          const realDate = moment(dateRow[3].innerHTML, "DD MMM YYYY, LT")
+            .format(); // select date from 4th column in table
+          dateRow[3].setAttribute('data-order', realDate);
+        });
+
+        // Init datatable --- more info on datatables: https://datatables.net/manual/
+        datatable = $(table).DataTable({
+          "info": false,
+          'ordering': false,
+          'pageLength': 10,
+        });
+      }
+
+      // Hook export buttons
+      var exportButtons = () => {
+        const documentTitle = 'Data Kelas';
+
+        // Hook dropdown menu click event to datatable export buttons
+        const exportButtons = document.querySelectorAll('#classes_menu [data-kt-export]');
+        exportButtons.forEach(exportButton => {
+          exportButton.addEventListener('click', e => {
+            e.preventDefault();
+
+            // Get clicked export value
+            const exportValue = e.target.getAttribute('data-kt-export');
+            const target = document.querySelector('.dt-buttons .buttons-' + exportValue);
+
+            // Trigger click event on hidden datatable export buttons
+            target.click();
+          });
+        });
+      }
+
+      // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+      var handleSearchDatatable = () => {
+        const filterSearch = document.querySelector('[data-kt-filter="search"]');
+        filterSearch.addEventListener('keyup', function(e) {
+          datatable.search(e.target.value).draw();
+        });
+      }
+
+      // Public methods
+      return {
+        init: function() {
+          table = document.querySelector('#classes');
+
+          if (!table) {
+            return;
+          }
+
+          initDatatable();
+          exportButtons();
+          handleSearchDatatable();
+        }
+      };
+    }();
+
+    // On document ready
+    KTUtil.onDOMContentLoaded(function() {
+      KTDatatablesButtons.init();
+    });
+  </script>
 </body>
 <!--end::Body-->
 

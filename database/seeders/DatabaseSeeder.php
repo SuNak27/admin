@@ -17,14 +17,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory()->count(4)->create();
 
         User::create([
-            'name' => 'Admin',
+            'name' => 'Alfad Sabil Haq',
+            'role' => 'admin',
             'email' => 'alfadsabilhaq@gmail.com',
             'password' => bcrypt('123456'),
             'username' => 'sunak27',
         ]);
+
+        User::factory()->count(4)->create();
 
         Category::create([
             'name' => "Backend Developer",
@@ -37,6 +39,8 @@ class DatabaseSeeder extends Seeder
             'description' => "Lorem ipsum",
         ]);
 
-        MyClass::factory()->count(1)->create();
+        Category::factory()->count(10)->create();
+        ClassRoom::factory()->count(10)->create();
+        MyClass::factory()->count(10)->create();
     }
 }

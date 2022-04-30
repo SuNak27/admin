@@ -15,6 +15,7 @@ class UserFactory extends Factory
     {
         return [
             'nik' => $this->faker->nik(),
+            'role' => $this->faker->randomElement(['admin', 'teacher', 'student']),
             'name' => $this->faker->name(),
             'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
