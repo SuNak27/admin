@@ -21,4 +21,9 @@ class ClassRoom extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
 }

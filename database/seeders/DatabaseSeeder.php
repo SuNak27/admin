@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\ClassRoom;
 use App\Models\MyClass;
 use App\Models\User;
+use App\Models\Video;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -42,5 +43,23 @@ class DatabaseSeeder extends Seeder
         Category::factory()->count(10)->create();
         ClassRoom::factory()->count(10)->create();
         MyClass::factory()->count(10)->create();
+        Video::create([
+            'title' => 'Golang 1',
+            'class_room_id' => 1,
+            'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores, autem beatae blanditiis consequatur'
+        ]);
+        Video::create([
+            'title' => 'PHP 1',
+            'class_room_id' => 2,
+            'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores, autem beatae blanditiis consequatur'
+        ]);
+        Video::create([
+            'title' => 'PHP 2',
+            'class_room_id' => 2,
+            'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, asperiores, autem beatae blanditiis consequatur'
+        ]);
     }
 }

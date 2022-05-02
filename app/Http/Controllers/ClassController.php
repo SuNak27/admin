@@ -51,7 +51,8 @@ class ClassController extends Controller
     {
         return view('admin.class.show', [
             "title" => "Detail Kelas",
-            "class" => ClassRoom::find($id)
+            "class" => ClassRoom::find($id),
+            'videos' => ClassRoom::find($id)->videos
         ]);
     }
 
