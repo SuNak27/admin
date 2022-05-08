@@ -60,7 +60,7 @@
                     <td>{{ $class->category->name }}</td>
                     <td class="text-center">10</td>
                     <td class="text-center d-flex justify-content-center">
-                      <a href="/classlist/{{ $class->id }}" class="badge badge-primary">
+                      <a href="/dashboard/class_room/{{ $class->slug }}" class="badge badge-primary">
                         <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen005.svg-->
                         <span class="svg-icon svg-icon-light"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                             height="24" viewBox="0 0 24 24" fill="none">

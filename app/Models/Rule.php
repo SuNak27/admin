@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Rule extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['class_room'];
+    protected $with = ['permissions'];
 
-    public function class_room()
+    public function permissions()
     {
-        return $this->belongsTo(ClassRoom::class);
+        return $this->belongsTo(Permission::class);
     }
 }

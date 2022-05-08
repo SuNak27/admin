@@ -1,13 +1,15 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ClassController;
+use App\Http\Controllers\ClassRoomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyClassController;
+use App\Http\Controllers\VideoController;
 use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +36,5 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 // Admin
-Route::resource('/classlist', ClassController::class)->middleware('admin');
+Route::get('/dashboard/class_room/video/{Video:id}', [VideoController::class, 'index'])->middleware('admin');
+Route::resource('/dashboard/class_room', ClassRoomController::class);

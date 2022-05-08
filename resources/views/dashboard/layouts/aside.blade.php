@@ -56,7 +56,8 @@
         </div>
         @can('admin')
           <div class="menu-item">
-            <a class="menu-link {{ Request::is('classlist*') ? 'active' : '' }}" href="/classlist">
+            <a class="menu-link {{ Request::is('dashboard/class_room*') ? 'active' : '' }}"
+              href="/dashboard/class_room">
               <span class="menu-icon">
                 <i class="bi bi-book"></i>
               </span>
