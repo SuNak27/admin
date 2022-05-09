@@ -36,5 +36,5 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 // Admin
-Route::get('/dashboard/class_room/video/{Video:id}', [VideoController::class, 'index'])->middleware('admin');
+Route::get('/dashboard/class_room/{CLassRoom:slug}/{Video:id}', [VideoController::class, 'index'])->middleware('admin');
 Route::resource('/dashboard/class_room', ClassRoomController::class);

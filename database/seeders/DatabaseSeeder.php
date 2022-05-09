@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Permission;
 use App\Models\Role;
-use App\Models\Rule;
 use App\Models\User;
+use App\Models\Video;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -51,52 +50,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
         ]);
         Role::create([
-            'name' => 'Teacher',
+            'name' => 'Mentor',
         ]);
         Role::create([
-            'name' => 'Student',
+            'name' => 'Stundent',
         ]);
 
-        Rule::create([
-            'name' => 'Create',
-        ]);
-        Rule::create([
-            'name' => 'Read',
-        ]);
-        Rule::create([
-            'name' => 'Update',
-        ]);
-        Rule::create([
-            'name' => 'Delete',
-        ]);
-
-        Permission::create([
-            'role_id' => 1,
-            'rule_id' => 1,
-        ]);
-        Permission::create([
-            'role_id' => 1,
-            'rule_id' => 2,
-        ]);
-        Permission::create([
-            'role_id' => 1,
-            'rule_id' => 3,
-        ]);
-        Permission::create([
-            'role_id' => 1,
-            'rule_id' => 4,
-        ]);
-        Permission::create([
-            'role_id' => 2,
-            'rule_id' => 1,
-        ]);
-        Permission::create([
-            'role_id' => 2,
-            'rule_id' => 2,
-        ]);
-        Permission::create([
-            'role_id' => 2,
-            'rule_id' => 3,
-        ]);
+        Video::factory()->count(10)->create();
     }
 }

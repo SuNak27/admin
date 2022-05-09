@@ -39,8 +39,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function myclass()
+    public function ClassRoom()
     {
-        return $this->hasMany(MyClass::class);
+        return $this->belongsTo(ClassRoom::class);
     }
 }
