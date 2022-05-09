@@ -11,7 +11,7 @@ class Video extends Model
 
     protected $guarded = ['id'];
 
-    public function classRoom()
+    public function class_room()
     {
         return $this->belongsTo(ClassRoom::class);
     }

@@ -5,22 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class CreditType extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['transactions', 'credits'];
-
-    public function promotions()
-    {
-        return $this->hasMany(Promotion::class);
-    }
-
-    public function transactions()
-    {
-        return $this->belongsTo(Transaction::class);
-    }
+    protected $with = ['credits'];
 
     public function credits()
     {

@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Transaction extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
-    protected $with = ['transactions', 'credits'];
+    protected $with = ['credits'];
 
-    public function promotions()
+    public function users()
     {
-        return $this->hasMany(Promotion::class);
+        return $this->hasMany(User::class);
     }
 
-    public function transactions()
+    public function types()
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->hasMany(Type::class);
     }
 
     public function credits()
