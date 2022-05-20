@@ -10,6 +10,7 @@ class ClassRoom extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['courses'];
 
     public function users()
     {
@@ -23,6 +24,6 @@ class ClassRoom extends Model
 
     public function courses()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsTo(Course::class);
     }
 }

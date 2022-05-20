@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\ClassRoom;
+use App\Models\Course;
 use App\Models\Role;
+use App\Models\Type;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Database\Seeder;
@@ -16,7 +20,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        // ==== User ====
         User::create([
             'name' => 'Alfad Sabil Haq',
             'role_id' => '1',
@@ -46,6 +50,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->count(10)->create();
 
+        // ==== Role ====
         Role::create([
             'name' => 'Admin',
         ]);
@@ -56,6 +61,81 @@ class DatabaseSeeder extends Seeder
             'name' => 'Stundent',
         ]);
 
+        // ==== Video ====
         Video::factory()->count(10)->create();
+
+        // ==== Category ====
+        Category::create([
+            'name' => 'Programming',
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'description' => 'This is a programming category',
+        ]);
+        Category::create([
+            'name' => 'Design',
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'description' => 'This is a programming category',
+        ]);
+        Category::create([
+            'name' => 'Music',
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'description' => 'This is a programming category',
+        ]);
+
+        // ==== Type ====
+        Type::create([
+            'name' => 'Free',
+            'price' => 0,
+            'description' => 'This is a free course',
+            'promotion_id' => null,
+        ]);
+
+        Type::create([
+            'name' => 'Premium',
+            'price' => 100,
+            'promotion_id' => 1,
+            'description' => 'This is a paid course',
+        ]);
+
+
+        // ==== Course ====
+        Course::create([
+            'name' => 'PHP',
+            'description' => 'This is a PHP course',
+            'category_id' => 1,
+            'type_id' => 1,
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+        ]);
+
+        Course::create([
+            'name' => 'JavaScript',
+            'description' => 'This is a JavaScript course',
+            'category_id' => 1,
+            'type_id' => 2,
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+        ]);
+
+        Course::create([
+            'name' => 'Python',
+            'description' => 'This is a Python course',
+            'category_id' => 1,
+            'type_id' => 2,
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+        ]);
+
+        Course::create([
+            'name' => 'Biola',
+            'description' => 'This is a Biola course',
+            'category_id' => 3,
+            'type_id' => 2,
+            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+        ]);
+
+        ClassRoom::create([
+            'name' => 'Belajar PHP 1',
+            'mentor_id' => 1,
+            'course_id' => 1,
+            'video_id' => 1,
+            'user_id' => 2,
+        ]);
     }
 }

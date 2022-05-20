@@ -22,7 +22,7 @@
           <!--begin::Story-->
           <div class="text-center mb-10 mb-md-0">
             <!--begin::Illustration-->
-            <img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
+            <img src="{{ $category->thumbnail }}" class="mh-125px mb-9" alt="" />
             <!--end::Illustration-->
             <!--begin::Heading-->
             <div class="d-flex flex-center mb-5">

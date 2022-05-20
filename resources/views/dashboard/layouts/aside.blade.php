@@ -56,8 +56,15 @@
         </div>
         @can('admin')
           <div class="menu-item">
-            <a class="menu-link {{ Request::is('dashboard/class_room*') ? 'active' : '' }}"
-              href="/dashboard/class_room">
+            <a class="menu-link {{ Request::is('dashboard/category*') ? 'active' : '' }}" href="/dashboard/category">
+              <span class="menu-icon">
+                <i class="bi bi-bookmarks"></i>
+              </span>
+              <span class="menu-title">Kategori</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link {{ Request::is('dashboard/course*') ? 'active' : '' }}" href="/dashboard/course">
               <span class="menu-icon">
                 <i class="bi bi-book"></i>
               </span>

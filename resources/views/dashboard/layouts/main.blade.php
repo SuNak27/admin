@@ -81,10 +81,9 @@ License: For each use you must have a valid license purchased only from above li
   <script src="/assets/plugins/global/plugins.bundle.js"></script>
   <script src="/assets/js/scripts.bundle.js"></script>
   <!--end::Page Vendors Javascript-->
-  <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-  <!--end::Javascript-->
+  <script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 
-
+  {{-- Categories --}}
   <script>
     // $('#classes').DataTable({
     //   searching: true,
@@ -119,10 +118,10 @@ License: For each use you must have a valid license purchased only from above li
 
       // Hook export buttons
       var exportButtons = () => {
-        const documentTitle = 'Data Kelas';
+        const documentTitle = 'Data Kategori';
 
         // Hook dropdown menu click event to datatable export buttons
-        const exportButtons = document.querySelectorAll('#classes_menu [data-kt-export]');
+        const exportButtons = document.querySelectorAll('#example_menu [data-kt-export]');
         exportButtons.forEach(exportButton => {
           exportButton.addEventListener('click', e => {
             e.preventDefault();
@@ -148,7 +147,7 @@ License: For each use you must have a valid license purchased only from above li
       // Public methods
       return {
         init: function() {
-          table = document.querySelector('#classes');
+          table = document.querySelector('#example');
 
           if (!table) {
             return;
@@ -166,6 +165,8 @@ License: For each use you must have a valid license purchased only from above li
       KTDatatablesButtons.init();
     });
   </script>
+
+
 </body>
 <!--end::Body-->
 

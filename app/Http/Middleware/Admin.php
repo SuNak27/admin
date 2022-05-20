@@ -16,9 +16,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->check() || auth()->user()->role == 'student') {
+        if (!auth()->check() || auth()->user()->role_id == 3) {
             return redirect('dashboard');
-        } else if (auth()->user()->role == 'teacher') {
+        } else if (auth()->user()->role == 2) {
             return redirect('dashboard');
         }
         return $next($request);

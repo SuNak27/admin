@@ -20,6 +20,7 @@ class CreateClassRoomsTable extends Migration
             $table->foreignId('video_id');
             $table->foreignId('user_id');
             $table->foreignId('course_id');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

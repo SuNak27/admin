@@ -15,9 +15,11 @@ class CreateTypesTable extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('promotion_id')->nullable();
             $table->string('name');
-            $table->foreignId('promotion_id');
+            $table->string('description');
             $table->integer('price');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

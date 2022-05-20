@@ -8,6 +8,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        // dd($request->user());
         return view('dashboard.index', [
             'title' => 'Dashboard',
         ]);

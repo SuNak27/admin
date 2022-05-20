@@ -18,6 +18,9 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->foreignId('type_id');
             $table->foreignId('category_id');
+            $table->string('thumbnail');
+            $table->string('description');
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -10,10 +10,20 @@ class Course extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['classRoom'];
+    protected $with = ['type', 'category'];
 
-    public function class_rooms()
+    public function type()
     {
-        return $this->belongsTo(ClassRoom::class);
+        return $this->belongsTo(Type::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function class_room()
+    {
+        return $this->hasMany(ClassRoom::class);
     }
 }

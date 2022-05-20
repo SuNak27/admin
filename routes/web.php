@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClassRoomController;
+use App\Http\Controllers\CourseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -36,5 +37,11 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 // Admin
+// == Category ==
+Route::resource('/dashboard/category', CategoryController::class)->middleware('admin');
+
+// == Course ==
+Route::resource('/dashboard/course', CourseController::class)->middleware('admin');
+
 Route::get('/dashboard/class_room/{CLassRoom:slug}/{Video:id}', [VideoController::class, 'index'])->middleware('admin');
 Route::resource('/dashboard/class_room', ClassRoomController::class);
