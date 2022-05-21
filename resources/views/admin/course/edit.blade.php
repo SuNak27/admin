@@ -9,6 +9,7 @@
 
     </div>
     <form action="/dashboard/course" method="POST" enctype="multipart/form-data">
+      @method('put')
       @csrf
       <div class="card-body py-12">
         <div class="row justify-content-md-center">
@@ -21,7 +22,7 @@
               <!--end::Label-->
               <input type="text" name="name"
                 class="form-control form-control-sm bg-light-dark @error('name') is-invalid @enderror"
-                value="{{ old('name') }}" />
+                value="{{ old('name', $course->name) }}" />
               @error('name')
                 <span class="invalid-feedback" role="alert">
                   {{ $message }}
@@ -37,7 +38,7 @@
               <select class="form-select @error('category_id') is-invalid @enderror" name="category_id">
                 <option value="">Choose Category</option>
                 @foreach ($categories as $category)
-                  @if (old('category_id') == $category->id)
+                  @if (old('category_id', $course->category_id) == $category->id)
                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                   @else
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -59,7 +60,7 @@
               <select class="form-select @error('type_id') is-invalid @enderror" name="type_id">
                 <option value="">Choose Type</option>
                 @foreach ($types as $type)
-                  @if (old('type_id') == $type->id)
+                  @if (old('type_id', $course->type_id) == $type->id)
                     <option value="{{ $type->id }}" selected>{{ $type->name }}</option>
                   @else
                     <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -78,7 +79,13 @@
                 <span>Thumbnail</span>
               </label>
               <!--end::Label-->
-              <img class="img-preview img-fluid mb-3">
+              {{-- <img class="img-preview img-fluid mb-3"> --}}
+              <input type="hidden" name="oldThumbnail" value="{{ $category->thumbnail }}">
+              @if ($category->thumbnail)
+                <img src="{{ asset('storage/' . $category->thumbnail) }}" class="img-fluid img-preview d-block mb-3">
+              @else
+                <img class="img-preview img-fluid mb-3">
+              @endif
               <input class="form-control @error('thumbnail') is-invalid @enderror" type="file" id="thumbnail"
                 name="thumbnail" onchange="previewImage()">
               @error('thumbnail')

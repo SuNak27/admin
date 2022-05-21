@@ -10,12 +10,18 @@ class ClassRoom extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['courses'];
+    protected $with = ['mentor', 'user'];
 
-    public function users()
+    public function mentor()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 
     public function videos()
     {

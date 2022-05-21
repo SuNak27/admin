@@ -68,7 +68,11 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        return view('admin.course.show', [
+            'title' => 'Kursus',
+            'course' => $course,
+            'class_rooms' => $course->class_room,
+        ]);
     }
 
     /**
@@ -79,7 +83,12 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view('admin.course.edit', [
+            'title' => 'Kursus',
+            'course' => $course,
+            'categories' => Category::where('deleted_at', null)->get(),
+            'types' => Type::where('deleted_at', null)->get(),
+        ]);
     }
 
     /**
@@ -91,7 +100,20 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|',
+            'category_id' => 'required',
+            'type_id' => 'required',
+            'description' => 'required',
+            'thumbnail' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        if ($request->file('thumbnail')) {
+            $validatedData['thumbnail'] = $request->file('thumbnail')->store('courses', 'public');
+        }
+
+        $course->update($validatedData);
+        return redirect('/dashboard/course')->with('success', 'Course updated successfully');
     }
 
     /**

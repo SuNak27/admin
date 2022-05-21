@@ -16,9 +16,9 @@ class CreateClassRoomsTable extends Migration
         Schema::create('class_rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->foreignId('mentor_id');
             $table->foreignId('video_id');
-            $table->foreignId('user_id');
             $table->foreignId('course_id');
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();

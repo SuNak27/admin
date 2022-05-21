@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $guarded = ['id'];
-    protected $with = ['class_room', 'transactions'];
+    protected $with = ['transactions'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,9 +41,9 @@ class User extends Authenticatable
 
 
 
-    public function class_room()
+    public function class_rooms()
     {
-        return $this->belongsTo(ClassRoom::class);
+        return $this->hasMany(ClassRoom::class);
     }
 
     public function transactions()

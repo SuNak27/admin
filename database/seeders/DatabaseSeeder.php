@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'This is a PHP course',
             'category_id' => 1,
             'type_id' => 1,
-            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'thumbnail' => '',
         ]);
 
         Course::create([
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'This is a JavaScript course',
             'category_id' => 1,
             'type_id' => 2,
-            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'thumbnail' => '',
         ]);
 
         Course::create([
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'This is a Python course',
             'category_id' => 1,
             'type_id' => 2,
-            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'thumbnail' => '',
         ]);
 
         Course::create([
@@ -127,15 +127,29 @@ class DatabaseSeeder extends Seeder
             'description' => 'This is a Biola course',
             'category_id' => 3,
             'type_id' => 2,
-            'thumbnail' => 'https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg',
+            'thumbnail' => '',
         ]);
 
         ClassRoom::create([
             'name' => 'Belajar PHP 1',
-            'mentor_id' => 1,
+            'description' => 'This is a PHP course',
+            'mentor_id' => 2,
             'course_id' => 1,
             'video_id' => 1,
-            'user_id' => 2,
+        ]);
+        ClassRoom::create([
+            'name' => 'Belajar PHP 2',
+            'description' => 'This is a PHP course',
+            'mentor_id' => 2,
+            'course_id' => 1,
+            'video_id' => 1,
+        ]);
+        ClassRoom::create([
+            'name' => 'Belajar Javascript 1',
+            'description' => 'This is a PHP course',
+            'mentor_id' => 2,
+            'course_id' => 2,
+            'video_id' => 1,
         ]);
     }
 }
