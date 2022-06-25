@@ -4,11 +4,11 @@
   <div class="card mb-5 mb-xl-8">
     <div class="card-header">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Add New Course</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Edit Course</span>
       </h3>
 
     </div>
-    <form action="/dashboard/course" method="POST" enctype="multipart/form-data">
+    <form action="/dashboard/course/{{ $course->id }}" method="POST" enctype="multipart/form-data">
       @method('put')
       @csrf
       <div class="card-body py-12">
@@ -76,6 +76,28 @@
             <div class="d-flex flex-column mb-8 fv-row">
               <!--begin::Label-->
               <label class="d-flex align-items-center fs-6 fw-bold mb-2 required">
+                <span>Course Type</span>
+              </label>
+              <!--end::Label-->
+              <select class="form-select @error('course_type') is-invalid @enderror" name="course_type">
+                <option value="">Choose Type</option>
+                @foreach ($course_type as $c)
+                  @if (old('course_type', $course->course_type) == $c)
+                    <option value="{{ $c }}" selected>{{ $c }}</option>
+                  @else
+                    <option value="{{ $c }}">{{ $c }}</option>
+                  @endif
+                @endforeach
+              </select>
+              @error('course_type')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+            <div class="d-flex flex-column mb-8 fv-row">
+              <!--begin::Label-->
+              <label class="d-flex align-items-center fs-6 fw-bold mb-2 required">
                 <span>Thumbnail</span>
               </label>
               <!--end::Label-->
@@ -102,7 +124,7 @@
               <!--end::Label-->
               <textarea name="description"
                 class="form-control form-control-sm bg-light-dark @error('description') is-invalid @enderror"
-                rows="3" />{{ old('description') }}</textarea>
+                rows="3" />{{ old('description', $course->description) }}</textarea>
               @error('description')
                 <span class="invalid-feedback" role="alert">
                   {{ $message }}

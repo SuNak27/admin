@@ -75,6 +75,28 @@
             <div class="d-flex flex-column mb-8 fv-row">
               <!--begin::Label-->
               <label class="d-flex align-items-center fs-6 fw-bold mb-2 required">
+                <span>Course Type</span>
+              </label>
+              <!--end::Label-->
+              <select class="form-select @error('course_type') is-invalid @enderror" name="course_type">
+                <option value="">Choose Type</option>
+                @foreach ($course_type as $c)
+                  @if (old('course_type') == $c)
+                    <option value="{{ $c }}" selected>{{ $c }}</option>
+                  @else
+                    <option value="{{ $c }}">{{ $c }}</option>
+                  @endif
+                @endforeach
+              </select>
+              @error('course_type')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+              @enderror
+            </div>
+            <div class="d-flex flex-column mb-8 fv-row">
+              <!--begin::Label-->
+              <label class="d-flex align-items-center fs-6 fw-bold mb-2 required">
                 <span>Thumbnail</span>
               </label>
               <!--end::Label-->

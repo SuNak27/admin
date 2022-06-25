@@ -101,6 +101,7 @@ class DatabaseSeeder extends Seeder
         Course::create([
             'name' => 'PHP',
             'description' => 'This is a PHP course',
+            'course_type' => 'Online',
             'category_id' => 1,
             'type_id' => 1,
             'thumbnail' => '',
@@ -109,6 +110,7 @@ class DatabaseSeeder extends Seeder
         Course::create([
             'name' => 'JavaScript',
             'description' => 'This is a JavaScript course',
+            'course_type' => 'Bootcamp',
             'category_id' => 1,
             'type_id' => 2,
             'thumbnail' => '',
@@ -117,6 +119,7 @@ class DatabaseSeeder extends Seeder
         Course::create([
             'name' => 'Python',
             'description' => 'This is a Python course',
+            'course_type' => 'Both',
             'category_id' => 1,
             'type_id' => 2,
             'thumbnail' => '',
@@ -125,6 +128,7 @@ class DatabaseSeeder extends Seeder
         Course::create([
             'name' => 'Biola',
             'description' => 'This is a Biola course',
+            'course_type' => 'Both',
             'category_id' => 3,
             'type_id' => 2,
             'thumbnail' => '',

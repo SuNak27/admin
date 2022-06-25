@@ -26,6 +26,7 @@
               <th class="w-100px text-center">Actions</th>
               <th class="w-100px text-center">Name</th>
               <th class="w-100px text-center">Type</th>
+              <th class="w-100px text-center">Course Type</th>
               <th class="w-100px text-center">Category</th>
               <th class="w-100px text-center">Description</th>
               <th class="w-100px text-center">Total Classes</th>
@@ -54,6 +55,7 @@
                   </td>
                   <td class="text-center">{{ $course->name }}</td>
                   <td class="text-center">{{ $course->type->name }}</td>
+                  <td class="text-center">{{ $course->course_type }}</td>
                   <td class="text-center">{{ $course->category->name }}</td>
                   <td class="text-center">{{ $course->description }}</td>
                   <td class="text-center">{{ $course->class_room->count() }}</td>

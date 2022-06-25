@@ -33,6 +33,7 @@ class CourseController extends Controller
             'title' => 'Tambah Kursus',
             'categories' => Category::where('deleted_at', null)->get(),
             'types' => Type::where('deleted_at', null)->get(),
+            'course_type' => ['Bootcamp', 'Online', 'Both'],
         ]);
     }
 
@@ -48,6 +49,7 @@ class CourseController extends Controller
             'name' => 'required|unique:courses',
             'category_id' => 'required',
             'type_id' => 'required',
+            'course_type' => 'required',
             'description' => 'required',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -88,6 +90,7 @@ class CourseController extends Controller
             'course' => $course,
             'categories' => Category::where('deleted_at', null)->get(),
             'types' => Type::where('deleted_at', null)->get(),
+            'course_type' => ['Bootcamp', 'Online', 'Both'],
         ]);
     }
 
@@ -112,7 +115,7 @@ class CourseController extends Controller
             $validatedData['thumbnail'] = $request->file('thumbnail')->store('courses', 'public');
         }
 
-        $course->update($validatedData);
+        Course::where('id', $course->id)->update($validatedData);
         return redirect('/dashboard/course')->with('success', 'Course updated successfully');
     }
 

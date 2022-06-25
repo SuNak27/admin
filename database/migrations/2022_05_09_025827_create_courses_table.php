@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->foreignId('type_id');
             $table->foreignId('category_id');
+            $table->enum('course_type', ['Bootcamp', 'Online', 'Both']);
             $table->string('thumbnail')->nullable();
             $table->string('description');
             $table->timestamp('deleted_at')->nullable();
